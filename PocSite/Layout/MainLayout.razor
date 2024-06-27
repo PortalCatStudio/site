@@ -1,0 +1,46 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider
+    IsDarkMode="true"
+    Theme="@_theme"
+/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudContainer MaxWidth="MaxWidth.Large">
+    <MudLayout>
+        <MudAppBar>
+            App bar
+        </MudAppBar>
+        <MudContainer MaxWidth="MaxWidth.Large" Style="margin-top: 100px">
+            <MudPaper
+                Style="padding: 10px"
+                Elevation="1">
+                @Body
+            </MudPaper>
+        </MudContainer>
+    </MudLayout>
+</MudContainer>
+
+@code
+{
+    readonly MudTheme _theme = new ()
+    {
+        PaletteLight = new PaletteLight()
+        {
+            Primary = Colors.Blue.Default,
+            Secondary = Colors.Green.Accent4,
+            AppbarBackground = Colors.Red.Default,
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = Colors.Blue.Lighten1
+        },
+
+        LayoutProperties = new LayoutProperties()
+        {
+            DrawerWidthLeft = "260px",
+            DrawerWidthRight = "300px"
+        }
+    };
+}
